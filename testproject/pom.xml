@@ -54,6 +54,49 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+			<groupId>org.mule.tools.maven</groupId>
+			<artifactId>mule-maven-plugin</artifactId>
+			<version>2.2.1</version>
+			<configuration>
+			
+				<inclusions>
+			
+					<inclusion>
+						<groupId>org.mule.modules</groupId>
+						<artifactId>mule-module-sfdc</artifactId>	
+					</inclusion>
+					<inclusion>
+						<groupId>org.mule.modules</groupId>
+						<artifactId>mule-module-requester</artifactId>
+					</inclusion>
+					<inclusion>
+						<groupId>com.mulesoft.connectors</groupId>
+						<artifactId>mule-ftps-transport</artifactId>
+					</inclusion>	
+				</inclusions>
+			
+			<deploymentType>arm</deploymentType>
+			<server>my.cloudhub</server> 
+			<target>Kenny</target>
+			<!-- One of: server, serverGroup, cluster: -->
+			<targetType>server</targetType>
+			<environment>Development</environment>
+			
+			</configuration>
+			<executions>
+			<execution>
+				<id>deploy</id>
+				<phase>deploy</phase>
+				<goals>
+				<goal>deploy</goal>
+				</goals>
+			</execution>
+			</executions>
+        </plugin>
+			
+			
 		</plugins>
 	</build>
 
